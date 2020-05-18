@@ -4,4 +4,4 @@
 
 * An example of the data (JSON file) we have scraped from Amazon: http://wiki.sinfronteras.ws/images/9/97/AmazonLaptopReviews.json
 
-* Visit our wiki at http://wiki.sinfronteras.ws/view/Data_Dashboard_for_Amazon_Laptop_Reviews#Project_rationale_and_business_value
+* Visit our wiki at http://wiki.sinfronteras.ws/view/Data_Dashboard_for_Amazon_Laptop_Reviews
