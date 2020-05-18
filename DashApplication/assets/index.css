@@ -1,0 +1,124 @@
+html {
+  height:100%;
+}
+
+
+body {
+  height:100%;
+  margin: 0;
+  background-color: #dfe0e6;
+  /* background-color: wihte, */
+}
+
+
+.noSelection{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
+}
+
+
+.divDos1 {
+  width: 23%;
+  height: 240px;
+  float: left;
+  background-color: #dfe0e6;
+  border: 0.0px solid black;
+}
+
+
+.divDos2 {
+  width: 77%;
+  height: 240px;
+  float: left;
+  background-color: #dfe0e6;
+  border: 0.0px solid black;
+}
+
+
+.divSquare {
+  width: 50%;
+  height: 392px;
+  float: left;
+  background-color: #dfe0e6;
+  border: 0.0px solid black;
+}
+
+
+.divSquare1 {
+  width: 30%;
+  height: 392px;
+  float: left;
+  background-color: #dfe0e6;
+  border: 0.0px solid black;
+}
+
+
+.divSquare2 {
+  width: 40%;
+  height: 392px;
+  float: left;
+  background-color: #dfe0e6;
+  border: 0.0px solid black;
+}
+
+
+.divSquare3 {
+  width: 60%;
+  height: 392px;
+  float: left;
+  background-color: #dfe0e6;
+  border: 0.0px solid black;
+}
+
+
+.interDivSquare {
+  /* width:   calc(100% - 10px); */
+  /* height:  calc(100% - 10px); */
+  height:  100%;
+  padding: 10pt;
+  margin:  10pt 5pt 10pt 5pt;
+  background-color: white;
+}
+
+
+.modal {
+  position: fixed;
+  z-index: 1002; /* Sit on top, including modebar which has z=1001 */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
+
+}
+
+
+.modal-content {
+  position: absolute;
+  left: 50%;
+  top: 21%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  padding: 30px;
+  background-color: white;
+}
+
+
+/* .center {
+  line-height: 350px;
+  height: 100%;
+  border: 0px solid green;
+  text-align: center;
+} */
+
+
+/* If the text has multiple lines, add the following: */
+/* .center p {
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+} */
