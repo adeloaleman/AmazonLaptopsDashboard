@@ -56,12 +56,17 @@ navbar = dbc.Navbar(
                                             #' Ⓢ', ' §',
                                         ]
                                     ),
-                                    html.Span(
-                                        style={'font-size':'13pt','font-weigth':'normal','position': 'relative', 'top':'1.5pt'},
-                                        children=[
-                                            ' sinfronteras',
-                                        ]
+                                    html.I(
+                                        style={'color':'#E6E6FA', 'font-family':'"roboto"', 'font-size':' 24px', 'font-weight':'500', 'letter-spacing':'normal', 'line-height':'20px'},  #E6E6FA  #007bff, #f3faff
+                                        # style={'font-size':'20px', 'color': '#E6E6FA', 'font-weigth':'normal'},  #E6E6FA  #ADD8E6  #f3faff  # rgb(29, 161, 242)
+                                        children=' Amazon Laptops Dashboard'
                                     ),
+                                    # html.Span(
+                                        # style={'font-size':'13pt','font-weigth':'normal','position': 'relative', 'top':'1.5pt'},
+                                        # children=[
+                                            # ' sinfronteras',
+                                        # ]
+                                    # ),
                                 ]
                             )
                         ]

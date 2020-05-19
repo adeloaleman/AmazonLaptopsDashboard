@@ -12,7 +12,7 @@ from collections import Counter
 import plotly.express as px
 
 
-data = pd.read_json('./data/data.json')
+data = pd.read_json('./data/amazon_data.json')
 
 
 
@@ -51,7 +51,7 @@ def img_wordCloud(cloud):
 
 
 
-def img_histoWords(text,number):
+def wordCountBarChart(text,number):
     lista=text.split()
     counts = Counter(lista)
     dic = dict(counts.items())
@@ -80,7 +80,7 @@ def img_histoWords(text,number):
 
 
 
-def aveReviews(thedata):
+def aveReviewsBarChart(thedata):
     ave = []
     ave = thedata.groupby('brand').describe()['average_customer_reviews']
     ave = ave.reset_index()
@@ -117,8 +117,7 @@ def aveReviews(thedata):
 
 
 
-
-def avgReviews(data,brands_selected,series_selected):
+def avgReviewsBarChart(data,brands_selected,series_selected):
     brand_series_review_selected = data.query('brand in @brands_selected & series in @series_selected')[['brand','series','average_customer_reviews']]
 
     review_total = []
@@ -182,7 +181,7 @@ def avgReviews(data,brands_selected,series_selected):
 
 
 
-def avgPrices(data,brands_selected,series_selected):
+def avgPricesBarChart(data,brands_selected,series_selected):
     brand_series_price_selected = data.query('brand in @brands_selected & series in @series_selected')[['brand','series','price']]
 
     price_total = []
@@ -244,7 +243,7 @@ def avgPrices(data,brands_selected,series_selected):
 
 
 
-def avgVsPrice():
+def avgVsPriceBubbleChart():
     fig = px.scatter(data, x="price", y="average_customer_reviews",
                     size="average_customer_reviews", color="brand",
                     hover_name="brand", log_x=False, size_max=30)
@@ -274,7 +273,7 @@ def avgVsPrice():
 
 
 
-# def img_histoWords(cloud):
+# def wordCountBarChart(cloud):
 #     x = np.array(list(cloud.words_.keys()))
 #     y = np.array(list(cloud.words_.values()))
 #     order = np.argsort(y)[::-1]
@@ -294,7 +293,7 @@ def avgVsPrice():
 
 # cloud = wordCloud(text)
 # imgCloud = img_wordCloud(cloud)
-# imgHistoWords = img_histoWords(text,50)
+# imgHistoWords = wordCountBarChart(text,50)
 textfield = dcc.Textarea(id='text-field', style={'height': 250, 'width': '100%'}, value=lorem.paragraph())
 
 

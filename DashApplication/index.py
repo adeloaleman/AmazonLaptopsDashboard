@@ -18,9 +18,9 @@ from   dash.dependencies import Input, Output, State
 from   dash import no_update
 from   dash.exceptions import PreventUpdate
 
-from components.navbar     import navbar, navbar2
-from components.sidebar    import sidebar
-from components.wordcloud  import textfield, wordCloud, img_wordCloud, img_histoWords, aveReviews, avgReviews, avgPrices, avgVsPrice
+from components.navbar   import navbar, navbar2
+from components.sidebar  import sidebar
+from components.plots    import textfield, wordCloud, img_wordCloud, wordCountBarChart, avgReviewsBarChart, avgPricesBarChart, avgVsPriceBubbleChart
 
 
 
@@ -36,9 +36,7 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 
 
-
-
-data = pd.read_json('./data/data.json')
+data = pd.read_json('./data/amazon_data.json')
 brands = [ {"label": b, "value": b} for b in  list(set(data['brand'])) ]
 first_brand = list(set(data['brand']))[1]
 
@@ -69,7 +67,7 @@ imgCloud = img_wordCloud(cloud)
 hist = html.Div([dcc.Graph(
     id='histo',
     style={'width': 'calc(100% - 50px)', 'height':'350px', 'display': 'block', 'margin-left': 'auto', 'margin-right': 'auto'},
-    figure=img_histoWords(text,30), config={'displayModeBar': False}
+    figure=wordCountBarChart(text,30), config={'displayModeBar': False}
 )])
 
 file = open('testfile.txt','w') 
@@ -267,7 +265,7 @@ app.layout = html.Div(
                                                 dcc.Graph(
                                                     style={'height':'360px'},
                                                     id='ave_reviews',                                                        
-                                                    figure=avgReviews(data, first_brand, series_first_brand),
+                                                    figure=avgReviewsBarChart(data, first_brand, series_first_brand),
                                                     config={'displayModeBar': False}
                                                 )
                                             ]
@@ -292,7 +290,7 @@ app.layout = html.Div(
                                                         dcc.Graph(
                                                             style={'height':'360px'},
                                                             id='ave_prices',
-                                                            figure=avgPrices(data, first_brand, series_first_brand),
+                                                            figure=avgPricesBarChart(data, first_brand, series_first_brand),
                                                             config={'displayModeBar': False}
                                                         )
                                                     ]
@@ -339,7 +337,7 @@ app.layout = html.Div(
                                                 dcc.Graph(
                                                     style={'height':'360px'},
                                                     id='ave_price',                                                        
-                                                    figure=avgVsPrice(),
+                                                    figure=avgVsPriceBubbleChart(),
                                                     config={'displayModeBar': False}
                                                 )
                                             ]
@@ -437,8 +435,8 @@ def changing_brand(input_value, price, input_value_series):
             style={'width': 'calc(100% - 50px)', 'height':'350px', 'display': 'block', 'margin-left': 'auto', 'margin-right': 'auto'},
         )
         ser = [None] * len(input_value)
-        ave_reviews = avgReviews(dataRangePrice, input_value, ser)
-        ave_prices = avgPrices(dataRangePrice, input_value, ser)
+        ave_reviews = avgReviewsBarChart(dataRangePrice, input_value, ser)
+        ave_prices = avgPricesBarChart(dataRangePrice, input_value, ser)
         return emp, emp, no_update, ave_reviews, ave_prices, brandsRangePriceDropdown, brand_seriesRangePriceDropdown
 
     elif len(input_value) == 0:
@@ -451,8 +449,8 @@ def changing_brand(input_value, price, input_value_series):
         )
         
         ser = [None] * len(input_value)
-        ave_reviews = avgReviews(dataRangePrice, input_value, ser)
-        ave_prices = avgPrices(dataRangePrice, input_value, ser)
+        ave_reviews = avgReviewsBarChart(dataRangePrice, input_value, ser)
+        ave_prices = avgPricesBarChart(dataRangePrice, input_value, ser)
         return emp, emp, [], ave_reviews, ave_prices, brandsRangePriceDropdown, brand_seriesRangePriceDropdown
 
 
@@ -502,7 +500,7 @@ def changing_brand(input_value, price, input_value_series):
             cloud = wordCloud(text)
             
             imgCloud = img_wordCloud(cloud)
-            imgHistoWords = img_histoWords(text,30)
+            imgHistoWords = wordCountBarChart(text,30)
 
             di = html.Div(children=[dcc.Graph(
                 id='histo',
@@ -510,8 +508,8 @@ def changing_brand(input_value, price, input_value_series):
                 figure=imgHistoWords, config={'displayModeBar': False}
             )])
 
-            ave_reviews = avgReviews(dataRangePrice, input_value, ser)
-            ave_prices = avgPrices(dataRangePrice, input_value, ser)
+            ave_reviews = avgReviewsBarChart(dataRangePrice, input_value, ser)
+            ave_prices = avgPricesBarChart(dataRangePrice, input_value, ser)
 
         return (
             imgCloud,
@@ -546,7 +544,7 @@ def changing_brand(input_value, price, input_value_series):
             cloud = wordCloud(text)
             imgCloud = img_wordCloud(cloud)
             
-            imgHistoWords = img_histoWords(text,30)
+            imgHistoWords = wordCountBarChart(text,30)
 
             di = html.Div(children=[dcc.Graph(
                 id='histo',
@@ -554,8 +552,8 @@ def changing_brand(input_value, price, input_value_series):
                 figure=imgHistoWords, config={'displayModeBar': False}
             )])
 
-            ave_reviews = avgReviews(dataRangePrice, input_value, ser)
-            ave_prices = avgPrices(dataRangePrice, input_value, ser)
+            ave_reviews = avgReviewsBarChart(dataRangePrice, input_value, ser)
+            ave_prices = avgPricesBarChart(dataRangePrice, input_value, ser)
 
         return (
             imgCloud,
