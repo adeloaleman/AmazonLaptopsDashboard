@@ -1,5 +1,22 @@
-scp  -r  *  root@sinfronteras.ws:/var/www/sinfronteras/SADashboard
-ssh  root@sinfronteras.ws  'systemctl restart SADashboard'
+# scp  -r  *  root@sinfronteras.ws:/var/www/sinfronteras/SADashboard
+
+# rsync  -av    --exclude  'data/NRC-Sentiment-Emotion-Lexicons'    .    root@sinfronteras.ws:/var/www/sinfronteras/SADashboard
+
+
+# ssh -i   /home/adelo/desktop/it_cct/.tr4sh-it_cct/Cloud_and_Virtualisation_Frameworks/CA2/adelo-laptop.pem   ubuntu@34.205.203.124   'mkdir /home/ubuntu/temp'
+# rsync  -rave     "ssh -i   /home/adelo/desktop/it_cct/.tr4sh-it_cct/Cloud_and_Virtualisation_Frameworks/CA2/adelo-laptop.pem"     --exclude  'data/NRC-Sentiment-Emotion-Lexicons'       .        ubuntu@34.205.203.124:/home/ubuntu/temp
+# ssh -i   /home/adelo/desktop/it_cct/.tr4sh-it_cct/Cloud_and_Virtualisation_Frameworks/CA2/adelo-laptop.pem   ubuntu@34.205.203.124   'sudo mv /home/ubuntu/temp/* /var/www/html/SADashboard'
+
+# ssh -i   /home/adelo/.aws_ssh_key_pem/my-laptop.pem   ubuntu@34.244.10.211   'mkdir /home/ubuntu/temp'
+# rsync  -rave     "ssh -i   /home/adelo/.aws_ssh_key_pem/my-laptop.pem"     --exclude  'data/NRC-Sentiment-Emotion-Lexicons'       .        ubuntu@34.244.10.211:/home/ubuntu/temp
+# ssh -i   /home/adelo/.aws_ssh_key_pem/my-laptop.pem   ubuntu@34.244.10.211   'sudo mv /home/ubuntu/temp/* /var/www/html/SADashboard'
+
+
+rsync  -rave     "ssh -i   /home/adelo/.aws_ssh_key_pem/my-laptop.pem"     --exclude  'data/NRC-Sentiment-Emotion-Lexicons'       .        ubuntu@54.217.40.182:/home/ubuntu/SADashboard 
+
+
+# ssh  root@sinfronteras.ws  'systemctl restart SADashboard'
+
 
 
 

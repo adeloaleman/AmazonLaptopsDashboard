@@ -2,6 +2,13 @@ html {
   height:100%;
 }
 
+.w3-sidebar{
+  background: rgba(47, 54, 92,0.95); 
+  /* background-color: #1e2130; */
+  width: 210pt;
+  /* opacity: 0.5; */
+  /* rgba(30,33,48,0.9) */
+}
 
 body {
   height:100%;
@@ -22,7 +29,7 @@ body {
 
 
 .divDos1 {
-  width: 23%;
+  width: 25%;
   height: 240px;
   float: left;
   background-color: #dfe0e6;
@@ -31,7 +38,7 @@ body {
 
 
 .divDos2 {
-  width: 77%;
+  width: 75%;
   height: 240px;
   float: left;
   background-color: #dfe0e6;
@@ -75,13 +82,60 @@ body {
 }
 
 
+.divSquare4 {
+  width: 20%;
+  height: 700px;
+  float: left;
+  background-color: #dfe0e6;
+  border: 0.0px solid black;
+}
+
+
+.divSquare5 {
+  width: 25%;
+  height: 392px;
+  float: left;
+  background-color: #dfe0e6;
+  border: 0.0px solid black;
+}
+
+
+.divSquare6 {
+  width: 50%;
+  height: 392px;
+  float: left;
+  background-color: #dfe0e6;
+  border: 0.0px solid black;
+}
+
+
+.divSquare7 {
+  width: 100%;
+  height: 392px;
+  float: left;
+  background-color: #dfe0e6;
+  border: 0.0px solid black;
+}
+
+
+.divSquare8 {
+  width: 100%;
+  height: 691px;
+  float: left;
+  background-color: #dfe0e6;
+  border: 0.0px solid black;
+}
+
+
 .interDivSquare {
   /* width:   calc(100% - 10px); */
   /* height:  calc(100% - 10px); */
-  height:  100%;
-  padding: 10pt;
+  height:  calc(100% - 10pt);
+  padding: 7pt;
   margin:  10pt 5pt 10pt 5pt;
   background-color: white;
+  border-radius: 6px;
+  background: white;
 }
 
 
@@ -105,6 +159,32 @@ body {
   width: 50%;
   padding: 30px;
   background-color: white;
+}
+
+
+
+/* https://community.plotly.com/t/setting-the-size-of-a-loading-component/20978/2 */
+.dash-spinner.dash-default-spinner {
+    margin: 1rem auto;
+    width: 2000px;
+    height: 50px;
+    text-align: center;
+    font-size: 5px;
+    margin-left: -50px;
+    z-index: 200
+}
+.dash-default-spinner-rect1,
+.dash-default-spinner-rect2,
+.dash-default-spinner-rect3,
+.dash-default-spinner-rect4,
+.dash-default-spinner-rect5{
+    background-color: #007bff !important;
+    height: 120px !important;
+    width: 12px !important;
+    display: inline-block !important;
+    margin-right: 0.3% !important;
+    margin-top: -30px !important;
+    z-index: 200
 }
 
 
